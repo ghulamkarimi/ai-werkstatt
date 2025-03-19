@@ -15,7 +15,7 @@ import MaxWithWrapper from "./MaxWithWrapper";
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-md py-1 sticky top-0 z-50">
+    <nav className="bg-white shadow-md py-2 sticky top-0 z-50">
       <MaxWithWrapper className="w-full flex justify-between items-center">
         {/* Logo und Name */}
         <div className="flex items-center space-x-3">
@@ -39,7 +39,7 @@ const Navbar = () => {
               <NavigationMenuTrigger className="text-gray-700 hover:text-indigo-600 transition">
                 Features
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="absolute  right-auto bg-white shadow-lg rounded-lg p-4 w-[800px] ">
+              <NavigationMenuContent className="absolute bg-white shadow-lg rounded-lg p-4 w-[800px]">
                 <div className="flex justify-between gap-4">
                   <Link
                     href="/features/terminbuchung"

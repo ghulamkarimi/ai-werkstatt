@@ -4,56 +4,52 @@ import React from "react";
 import { Calendar, CreditCard, CheckCircle } from "lucide-react";
 import { Button } from "@/componnetsUi/button";
 import { Card, CardContent } from "@/componnetsUi/card";
- 
+import MaxWithWrapper from "@/components/MaxWithWrapper";
+
 export default function AiWerkstattLanding() {
   return (
     <div className="min-h-screen bg-slate-100/80 font-sans antialiased">
-      {/* Header */}
-
       {/* Hero Section */}
-      <header className="pt-20 pb-16 text-center bg-gradient-to-br from-indigo-50 via-white to-teal-50 ">
+      <header className="pt-20 pb-16 text-center bg-gradient-to-br from-indigo-50 via-white to-teal-50">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
           Die Zukunft der Werkstattverwaltung
         </h1>
         <h2 className="text-xl font-bold max-w-2xl mx-auto leading-relaxed">
-          <span className="  bg-[#013766] text-white p-2 rounded-xl mb-2 mr-1  ">
-            {" "}
-            AI-Werkstatt{" "}
-          </span>{" "}
+          <span className="bg-[#013766] text-white p-2 rounded-xl mb-2 mr-1">
+            AI-Werkstatt
+          </span>
           bietet smarte Lösungen für Terminbuchung, Rechnungen und
           Kundenkommunikation – einfach und modern.
         </h2>
       </header>
 
       {/* Main Content: Image on Left, Form on Right */}
-      <section className="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row items-center gap-12">
+      <MaxWithWrapper className="w-full flex flex-col lg:flex-row items-center gap-12">
         {/* Image Section (Left) */}
         <div className="w-full lg:w-2/3 h-[580px]">
           <div className="relative h-full">
             <img
               src="/bild3.png"
               alt="Werkstatt Dashboard"
-              className="w-full h-full rounded-2xl object-cover "
+              className="w-full h-full rounded-2xl object-cover"
             />
             <img
               src="/bild5.png"
               alt=""
               className="absolute top-0 right-2 w-60 h-60 object-cover"
             />
-
-            <div className="absolute inset-0 rounded-2xl "></div>
           </div>
         </div>
 
         {/* Contact Form (Right) */}
-        <div className="w-full lg:w-1/3 max-w-md bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+        <div className="w-full lg:w-2/3 bg-white p-8 rounded-2xl shadow-md border border-gray-100">
           <h2 className="text-2xl font-semibold text-gray-900 mb-3 text-center">
             Kostenlose Beratung
           </h2>
           <p className="text-gray-500 text-center mb-6">
             Optimieren Sie Ihr Unternehmen mit AI-Werkstatt.
           </p>
-          <form className="space-y-4">
+          <form className="space-y-4 ">
             <input
               type="text"
               placeholder="Ihr Name"
@@ -100,10 +96,10 @@ export default function AiWerkstattLanding() {
             </Button>
           </form>
         </div>
-      </section>
+      </MaxWithWrapper>
 
       {/* Features Section */}
-      <section className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <MaxWithWrapper className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-4">
         <Card className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
           <CardContent className="p-6 text-center">
             <Calendar className="w-10 h-10 text-indigo-500 mx-auto mb-4" />
@@ -148,7 +144,7 @@ export default function AiWerkstattLanding() {
             </p>
           </CardContent>
         </Card>
-      </section>
+      </MaxWithWrapper>
     </div>
   );
 }
