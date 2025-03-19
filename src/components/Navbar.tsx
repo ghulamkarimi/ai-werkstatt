@@ -1,26 +1,28 @@
 "use client";
 
-import React from "react";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuContent,
-  NavigationMenuTrigger,
-  NavigationMenuLink,
-} from "@/components/ui/navigation-menu";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MaxWithWrapper from "./MaxWithWrapper";
 
 const Navbar = () => {
+  const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsFeaturesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsFeaturesOpen(false);
+  };
+
   return (
-    <nav className="bg-white shadow-md py-2 sticky top-0 z-50">
+    <nav className="bg-white shadow-lg py-4 sticky top-0 z-50">
       <MaxWithWrapper className="w-full flex justify-between items-center">
         {/* Logo und Name */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-4">
           <Image
-            className="rounded-full"
+            className="rounded-full border-2 border-blue-600 p-1"
             src="/webkraft.png"
             alt="AI-Werkstatt"
             width={40}
@@ -32,85 +34,99 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Menu */}
-        <NavigationMenu className="flex justify-end">
-          <NavigationMenuList className="flex space-x-10 text-black">
+        <div className="flex justify-end">
+          <div className="flex space-x-12 text-black">
             {/* Features Dropdown */}
-            <NavigationMenuItem className="relative">
-              <NavigationMenuTrigger className="text-gray-700 hover:text-indigo-600 transition">
+            <div
+              className=""
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button className="text-gray-700 hover:text-indigo-600 transition text-lg font-medium">
                 Features
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="absolute bg-white shadow-lg rounded-lg p-4 w-[800px]">
-                <div className="flex justify-between gap-4">
-                  <Link
-                    href="/features/terminbuchung"
-                    className="flex flex-col items-center gap-4 p-6 rounded hover:bg-gray-50 transition flex-1"
-                  >
-                    <span className="text-xs lg:text-sm font-bold">
-                      Online-Terminbuchung
-                    </span>
-                    <Image
-                      className="rounded-lg"
-                      src="/termin.jpg"
-                      alt="Online-Terminbuchung"
-                      width={100}
-                      height={140}
-                    />
-                  </Link>
-                  <Link
-                    href="/features/rechnungen"
-                    className="flex flex-col items-center gap-4 p-6 rounded hover:bg-gray-50 transition flex-1"
-                  >
-                    <span className="text-xs lg:text-sm font-bold">
-                      Rechnungen & Zahlungen
-                    </span>
-                    <Image
-                      className="rounded-lg"
-                      src="/zahlung.jpg"
-                      alt="Rechnungen & Zahlungen"
-                      width={100}
-                      height={100}
-                    />
-                  </Link>
-                  <Link
-                    href="/features/kundenverwaltung"
-                    className="flex flex-col items-center gap-4 p-6 rounded hover:bg-gray-50 transition flex-1"
-                  >
-                    <span className="text-xs lg:text-sm font-bold">
-                      Kundenverwaltung
-                    </span>
-                    <Image
-                      className="rounded-lg"
-                      src="/kundenverwaltung.jpg"
-                      alt="Kundenverwaltung"
-                      width={100}
-                      height={100}
-                    />
-                  </Link>
+              </button>
+              {isFeaturesOpen && (
+                <div className="absolute right-2 bg-white shadow-xl rounded-xl p-8 w-[800px]">
+                  <div className="grid grid-cols-3 gap-6">
+                    <Link
+                      href="/features/terminbuchung"
+                      className="flex flex-col items-center gap-3 p-4 bg-white hover:bg-gray-50 hover:shadow-md rounded-lg transition-all duration-300"
+                    >
+                      <div className="relative w-24 h-24">
+                        <Image
+                          className="rounded-lg object-cover"
+                          src="/termin.jpg"
+                          alt="Online-Terminbuchung"
+                          layout="fill"
+                        />
+                      </div>
+                      <span className="text-sm font-bold text-gray-800 text-center">
+                        Online-Terminbuchung
+                      </span>
+                      <span className="text-xs text-gray-500 text-center">
+                        Einfach und modern
+                      </span>
+                    </Link>
+                    <Link
+                      href="/features/rechnungen"
+                      className="flex flex-col items-center gap-3 p-4 bg-white hover:bg-gray-50 hover:shadow-md rounded-lg transition-all duration-300"
+                    >
+                      <div className="relative w-24 h-24">
+                        <Image
+                          className="rounded-lg object-cover"
+                          src="/zahlung.jpg"
+                          alt="Rechnungen & Zahlungen"
+                          layout="fill"
+                        />
+                      </div>
+                      <span className="text-sm font-bold text-gray-800 text-center">
+                        Rechnungen & Zahlungen
+                      </span>
+                      <span className="text-xs text-gray-500 text-center">
+                        Schnell und sicher
+                      </span>
+                    </Link>
+                    <Link
+                      href="/features/kundenverwaltung"
+                      className="flex flex-col items-center gap-3 p-4 bg-white hover:bg-gray-50 hover:shadow-md rounded-lg transition-all duration-300"
+                    >
+                      <div className="relative w-24 h-24">
+                        <Image
+                          className="rounded-lg object-cover"
+                          src="/kundenverwaltung.jpg"
+                          alt="Kundenverwaltung"
+                          layout="fill"
+                        />
+                      </div>
+                      <span className="text-sm font-bold text-gray-800 text-center">
+                        Kundenverwaltung
+                      </span>
+                      <span className="text-xs text-gray-500 text-center">
+                        Alles im Blick
+                      </span>
+                    </Link>
+                  </div>
                 </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+              )}
+            </div>
 
             {/* Preise */}
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/preise"
-                className="text-gray-700 hover:text-indigo-600 transition"
-              >
-                Preise
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+            <Link
+              href="/preise"
+              className="text-gray-700 hover:text-indigo-600 transition text-lg font-medium"
+            >
+              Preise
+            </Link>
 
             {/* Kontakt */}
-            <NavigationMenuItem>
-              <NavigationMenuLink
-                href="/kontakt"
-                className="text-gray-700 hover:text-indigo-600 transition"
-              >
-                Kontakt
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+            <Link
+              href="/kontakt"
+              className="text-gray-700 hover:text-indigo-600 transition text-lg font-medium"
+            >
+              Kontakt
+            </Link>
+          </div>
+        </div>
       </MaxWithWrapper>
     </nav>
   );
