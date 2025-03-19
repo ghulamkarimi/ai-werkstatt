@@ -5,23 +5,23 @@ const MainContent = () => {
   return (
     <MaxWithWrapper className="w-full flex flex-col lg:flex-row items-center gap-12 py-16">
       {/* Image Section (Left) */}
-      <div className="w-full lg:w-1/2 h-[580px] relative">
+      <div className="w-full lg:w-3/5 h-[580px] relative">
         <div className="relative h-full">
           <img
             src="/bild3.png"
             alt="Werkstatt Dashboard"
-            className="w-full h-full rounded-2xl object-cover shadow-lg"
+            className="w-full h-full rounded-2xl object-cover "
           />
           <img
             src="/bild5.png"
             alt="Werkstatt Details"
-            className="absolute -top-8 -right-8 w-60 h-60 object-cover rounded-lg shadow-lg border-4 border-white"
+            className="absolute -top-8 -right-8 lg:w-60 lg:h-60 w-45 h-45 object-cover rounded-lg"
           />
         </div>
       </div>
 
       {/* Contact Form (Right) */}
-      <div className="w-full lg:w-1/2 bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+      <div className="w-full lg:w-2/5 bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
         <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
           Kostenlose Beratung
         </h2>
