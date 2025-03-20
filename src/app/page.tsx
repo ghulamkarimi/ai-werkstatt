@@ -15,6 +15,7 @@ import MaxWithWrapper from "@/components/MaxWithWrapper";
 import MainContent from "@/components/mainContent/MainContent";
 import Consultant from "@/components/consultant/Consultant";
 import FeaturesSection from "@/components/featureSection/FeaturesSection ";
+import CustomerReviews from "@/components/featureSection/CustomerReview";
 
 const cards = [
   {
@@ -157,6 +158,11 @@ export default function AiWerkstattLanding() {
       <FeaturesSection />
       <div className="bg-white">
         <Consultant />
+      </div>
+      <div className="bg-gray-100">
+      <MaxWithWrapper>
+        <CustomerReviews />
+      </MaxWithWrapper>
       </div>
     </div>
   );
