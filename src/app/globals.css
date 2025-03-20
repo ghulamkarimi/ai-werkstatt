@@ -121,3 +121,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+.deep-blue {
+  background-color: #013766;
+}
+
+

@@ -1,4 +1,4 @@
-import { Button } from "@/componnetsUi/button";
+import { Button } from "@/components/ui/button";
 import MaxWithWrapper from "../MaxWithWrapper";
 
 const MainContent = () => {
@@ -74,7 +74,7 @@ const MainContent = () => {
               zu.
             </label>
           </div>
-          <Button className="w-full py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-300">
+          <Button className="w-full py-3 bg-[#013766] text-white rounded-lg font-semibold  transition-all duration-300">
             Beratung anfordern
           </Button>
         </form>
