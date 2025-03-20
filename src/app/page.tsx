@@ -1,7 +1,15 @@
 "use client";
 
 import React from "react";
-import { Calendar, CreditCard, CheckCircle, Users, FileText, Settings, Star } from "lucide-react";
+import {
+  Calendar,
+  CreditCard,
+  CheckCircle,
+  Users,
+  FileText,
+  Settings,
+  Star,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import MainContent from "@/components/mainContent/MainContent";
@@ -13,7 +21,7 @@ const cards = [
     icon: Calendar,
     title: "Online-Terminbuchung",
     description: "Termine jederzeit online buchen.",
-    color: "text-indigo-500",
+    color: "text-blue-900",
   },
   {
     icon: CreditCard,
@@ -39,7 +47,7 @@ const cards = [
     description: "Wartungen effizient planen.",
     color: "text-purple-500",
   },
-  
+
   {
     icon: Star,
     title: "Kundenbewertungen",
@@ -88,15 +96,34 @@ export default function AiWerkstattLanding() {
 
       <div className="bg-white py-16">
         <MaxWithWrapper>
-          <h2 className="text-xl text-center font-bold">
-            {" "}
-            Optimieren Sie Ihre Abläufe mit unserer KI-gestützten
-            Werkstattsoftware. Unsere Plattform umfasst eine moderne Website für
-            Ihre Kunden sowie ein leistungsstarkes Admin-Panel für die
-            Verwaltung. Automatische Terminverwaltung, intelligente
-            Kundenkommunikation und effiziente Rechnungsstellung {"-"} alles in
-            einer einzigen Plattform!
+          <h2 className="text-3xl text-center font-bold mb-6">
+            Was macht uns anders?
           </h2>
+          <p className="text-lg text-center text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            Optimieren Sie Ihre Abläufe mit unserer{" "}
+            <span className="font-semibold">
+              KI-gestützten Werkstattsoftware
+            </span>
+            . Unsere Plattform umfasst eine{" "}
+            <span className="font-semibold">moderne Website</span> für Ihre
+            Kunden sowie ein
+            <span className="font-semibold">
+              {" "}
+              leistungsstarkes Admin-Panel
+            </span>{" "}
+            für die Verwaltung.
+            <br />
+            <br />
+            <span className="font-semibold">Automatische Terminverwaltung</span>
+            ,
+            <span className="font-semibold">
+              intelligente Kundenkommunikation{" "}
+            </span>
+            und{" "}
+            <span className="font-semibold">effiziente Rechnungsstellung</span>{" "}
+            {"-"}
+            alles in einer einzigen Plattform!
+          </p>
         </MaxWithWrapper>
       </div>
 

@@ -27,26 +27,28 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
 
       {/* Container für Sidebar und Backdrop */}
-      <div className="relative">
-        {toggleSidebarMenu && (
-          <div className="fixed inset-0 backdrop-blur-lg bg-gray-900/50 z-10 pointer-events-none" />
-        )}
-
-        {/* Sidebar */}
+      {toggleSidebarMenu && (
         <div
-          className={`fixed top-0 left-0 h-full z-20 transition-all duration-300 ${
-            toggleSidebarMenu ? "w-fit" : "w-0 overflow-hidden"
-          }`}
-        >
-          <AppSidebar />
-        </div>
+          className="fixed inset-0 z-10 backdrop-blur-lg bg-gray-900/50"
+          onClick={() => dispatch(setToggleSidebarMenu(false))} // Schließt Sidebar, wenn außerhalb geklickt
+        />
+      )}
+
+      {/* Sidebar */}
+      <div
+        className={`fixed top-0 left-0 h-full z-20 transition-all duration-300 ${
+          toggleSidebarMenu ? "w-fit" : "w-0 overflow-hidden"
+        } pointer-events-auto`}
+      >
+        <AppSidebar />
       </div>
 
       {/* Hamburger-Menü-Icon - nur bei kleinen Bildschirmen sichtbar */}
       <div className="absolute top-18 left-4 z-10 md:hidden">
         <Menu 
           className="w-8 h-8 cursor-pointer text-black"
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation(); // Verhindert, dass das Event die Sidebar schließt
             dispatch(setToggleSidebarMenu(!toggleSidebarMenu));
             dispatch(setIsPanelOpen(false));
           }}

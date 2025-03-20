@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Car, MapPin, Book, Navigation, User, Utensils, LogOut, Settings, Pizza, Layers, ChefHat, Menu, Contact } from "lucide-react";
+import { Home, Settings, Contact, User } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import { BsCalendar2Date } from "react-icons/bs";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
@@ -15,7 +15,7 @@ export const menuItem = [
     icon: <Home />,
     arrowIcon: <ArrowRight />,
     subMenu: [
- 
+
     ],
   },
   {
@@ -27,17 +27,17 @@ export const menuItem = [
     subMenu: [
       { title: "Online Termine Buchen", link: "/termine/buchung", icon: <BsCalendar2Date /> },
       { title: "Rechnungen&Zahlungen", link: "/termine/buchung", icon: <PiInvoiceDuotone /> },
-      { title: "KundenVerwaltung", link: "/kundenverwaltung", icon: <PiInvoiceDuotone /> },
+      { title: "KundenVerwaltung", link: "/kundenverwaltung", icon: <User /> },
 
     ],
   },
   {
     title: "Preise",
     link: "",
-    icon: <RiPriceTag3Line />    ,
+    icon: <RiPriceTag3Line />,
     arrowIcon: <ArrowRight />,
     subMenu: [
-  
+
     ],
   },
   {
@@ -46,7 +46,7 @@ export const menuItem = [
     icon: <Contact />,
     arrowIcon: <ArrowRight />,
     subMenu: [
-  
+
     ],
   },
   {
@@ -55,7 +55,7 @@ export const menuItem = [
     icon: <Settings />,
     arrowIcon: <ArrowRight />,
     subMenu: [
-      { title: "Restaurantdetails", link: "/settings/account", icon: <Settings /> },
+      
     ],
   },
 
