@@ -58,11 +58,11 @@ export default function AiWerkstattLanding() {
             Die Zukunft der Werkstattverwaltung
           </h1>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            <span className="bg-[#013766] text-white px-4 py-2 rounded-full inline-block mb-3 md:mb-0 md:mr-3">
+            <span className="bg-[#013766] text-white px-4 py-2 rounded-xl inline-block mb-3 md:mb-0 md:mr-1">
               AI-Werkstatt
             </span>
             bietet smarte Lösungen für Terminbuchung, Rechnungen und
-            Kundenkommunikation – einfach und modern.
+            Kundenkommunikation {"-"} einfach und modern.
           </h2>
         </div>
       </header>
