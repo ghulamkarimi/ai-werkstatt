@@ -13,10 +13,10 @@ const Consultant = () => {
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
             Optimieren Sie Ihre Abläufe mit unserer KI-gestützten Werkstattsoftware.
               Automatische Terminverwaltung, intelligente Kundenkommunikation und
-              effiziente Rechnungsstellung – alles an einem Ort.
+              effiziente Rechnungsstellung {"-"} Alles in einer einzigen Plattform.
             </p>
             <button
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md 
+              className="deep-blue cursor-pointer text-white px-6 py-3 rounded-lg shadow-md font-semibold 
                 hover:bg-blue-700 transition duration-300"
             >
               Mehr Details

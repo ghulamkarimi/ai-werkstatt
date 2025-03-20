@@ -12,6 +12,8 @@ const features = [
     "Effiziente Service-Planung",
     "Digitale Dokumentation",
     "Kundenservice rund um die Uhr",
+    "Angebote erstellen",
+    "Admin-Panel, um Ihre Werkstatt zu verwalten",
     "Und vieles mehr..."
   ];
 
@@ -23,6 +25,7 @@ const FeaturesSection = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Warum unsere AI-Werkstattlösung?
           </h2>
+      
           <p className="text-gray-600 text-lg mb-8">
             Optimieren Sie Ihre Prozesse mit modernster Technologie und sparen Sie Zeit & Kosten.
           </p>
@@ -37,11 +40,11 @@ const FeaturesSection = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center mt-20">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-2 border-yellow-500 pb-2">Interesse an effizienter Planung und Automatisierung?</h2>
+        <div className="flex flex-col items-center justify-center mt-20 mb-20">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-yellow-500 pb-2">Interesse an effizienter Planung und Automatisierung?</h2>
             <p className="text-gray-600 text-lg">Wir helfen Ihnen gerne, Ihre Werkstatt auf das nächste Level zu bringen!</p>
             <p className="text-gray-600 text-lg mt-2"> Kontaktieren Sie uns per E-Mail oder Telefon – wir freuen uns auf Sie.</p>
-            <Button className="bg-[#013766] text-white hover:bg-[#013766]/80 mt-6">Jetzt kostenlos testen</Button>
+            <Button className="deep-blue text-white hover:bg-[#013766]/50 cursor-pointer font-semibold mt-6 py-4 px-6">Jetzt kostenlos testen</Button>
         </div>
       </section>
     </MaxWithWrapper>

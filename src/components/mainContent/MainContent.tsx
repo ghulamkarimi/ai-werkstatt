@@ -74,7 +74,7 @@ const MainContent = () => {
               zu.
             </label>
           </div>
-          <Button className="w-full py-3 bg-[#013766] text-white rounded-lg font-semibold  transition-all duration-300">
+          <Button className="w-full py-3 deep-blue text-white rounded-lg font-semibold  transition-all duration-300">
             Beratung anfordern
           </Button>
         </form>

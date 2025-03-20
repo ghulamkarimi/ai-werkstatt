@@ -22,7 +22,7 @@ const Navbar = () => {
         {/* Logo und Name */}
         <div className="flex items-center space-x-4">
           <Image
-            className="rounded-full border-2 border-blue-600 p-1"
+            className="rounded-full border-2 border-blue-950 p-1"
             src="/webkraft.png"
             alt="AI-Werkstatt"
             width={40}

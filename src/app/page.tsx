@@ -54,15 +54,29 @@ export default function AiWerkstattLanding() {
       {/* Hero Section */}
       <header className="pt-20 pb-16 text-center bg-gradient-to-br from-indigo-50 via-white to-teal-50">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+          {/* Hauptüberschrift */}
+          <h1 className="text-4xl md:text-5xl  font-bold text-gray-900 mb-6 tracking-tight">
             Die Zukunft der Werkstattverwaltung
           </h1>
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            <span className="bg-[#013766] text-white px-4 py-2 rounded-xl inline-block mb-3 md:mb-0 md:mr-1">
+
+          {/* Integrierte H2-Struktur mit vollständigem Text */}
+          <h2 className="text-xl md:text-2xl  text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <span className="bg-[#013766] text-white px-4 py-2 rounded-xl">
               AI-Werkstatt
+            </span>{" "}
+            bietet smarte Lösungen für{" "}
+            <span className="font-bold ml-1 border-b-3 border-yellow-500">
+              Terminbuchung
             </span>
-            bietet smarte Lösungen für Terminbuchung, Rechnungen und
-            Kundenkommunikation {"-"} einfach und modern.
+            ,{" "}
+            <span className="font-bold ml-1 border-b-3 border-yellow-500">
+              Rechnungen
+            </span>{" "}
+            und
+            <span className="font-bold ml-1 border-b-3 border-yellow-500">
+              Kundenkommunikation
+            </span>{" "}
+            {"-"} einfach und modern.
           </h2>
         </div>
       </header>
@@ -70,6 +84,20 @@ export default function AiWerkstattLanding() {
       {/* Main Content: Image on Left, Form on Right */}
       <div className="w-full">
         <MainContent />
+      </div>
+
+      <div className="bg-white py-16">
+        <MaxWithWrapper>
+          <h2 className="text-xl text-center font-bold">
+            {" "}
+            Optimieren Sie Ihre Abläufe mit unserer KI-gestützten
+            Werkstattsoftware. Unsere Plattform umfasst eine moderne Website für
+            Ihre Kunden sowie ein leistungsstarkes Admin-Panel für die
+            Verwaltung. Automatische Terminverwaltung, intelligente
+            Kundenkommunikation und effiziente Rechnungsstellung {"-"} alles in
+            einer einzigen Plattform!
+          </h2>
+        </MaxWithWrapper>
       </div>
 
       {/* Features Section */}
