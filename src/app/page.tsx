@@ -74,15 +74,15 @@ export default function AiWerkstattLanding() {
               AI-Werkstatt
             </span>{" "}
             bietet smarte Lösungen für{" "}
-            <span className="font-bold ml-1 border-b-3 border-yellow-500">
+            <span className="font-bold ml-1 ">
               Terminbuchung
             </span>
             ,{" "}
-            <span className="font-bold ml-1 border-b-3 border-yellow-500">
+            <span className="font-bold ml-1 ">
               Rechnungen
             </span>{" "}
             und
-            <span className="font-bold ml-1 border-b-3 border-yellow-500">
+            <span className="font-bold ml-1 ">
               Kundenkommunikation
             </span>{" "}
             {"-"} einfach und modern.

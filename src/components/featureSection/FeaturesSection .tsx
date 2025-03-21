@@ -40,7 +40,7 @@ const FeaturesSection = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center mt-20 mb-20">
+        <div className="flex flex-col items-center justify-center mt-20 ">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-yellow-500 pb-2">Interesse an effizienter Planung und Automatisierung?</h2>
             <p className="text-gray-600 text-lg">Wir helfen Ihnen gerne, Ihre Werkstatt auf das nächste Level zu bringen!</p>
             <p className="text-gray-600 text-lg mt-2"> Kontaktieren Sie uns per E-Mail oder Telefon – wir freuen uns auf Sie.</p>
