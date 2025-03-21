@@ -7,7 +7,7 @@ const Consultant = () => {
         <div className="flex flex-col lg:flex-row items-center gap-8 w-full">
           {/* Textbereich */}
           <div className="w-full lg:w-2/5">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Intelligente Lösungen für Ihre Werkstatt
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">

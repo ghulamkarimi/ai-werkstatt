@@ -47,7 +47,7 @@ const CustomerReviews = () => {
 
   return (
     <section className="py-16 text-center">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 tracking-tight">
+      <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-12 tracking-tight">
         Zufriedene Kunden sprechen für uns
       </h2>
       <div className="max-w-5xl mx-auto px-6">
