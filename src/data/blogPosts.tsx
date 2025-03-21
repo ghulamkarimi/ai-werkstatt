@@ -17,7 +17,7 @@ export interface BlogPost {
       description:
         "Erfahren Sie, wie künstliche Intelligenz Ihre Werkstatt effizienter macht, von der Automatisierung bis zur Kundenbindung.",
       date: "2025-03-15",
-      image: "/bild2.png",
+      image: "/werkstatt.jpg",
       fullContent: (
         <div>
           <p className="mb-4">
@@ -52,7 +52,7 @@ export interface BlogPost {
       description:
         "Ein Blick auf die neuesten Technologien und wie sie die Arbeitsweise in Werkstätten verändern werden.",
       date: "2025-03-10",
-      image: "/bild2.png",
+      image: "/werkstatt-1.jpg",
       fullContent: (
         <div>
           <p className="mb-4">
@@ -92,7 +92,7 @@ export interface BlogPost {
       description:
         "Lernen Sie, wie Sie Ihre Werkstatt online sichtbar machen und mehr Kunden erreichen können.",
       date: "2025-03-05",
-      image: "/bild2.png",
+      image: "/bild3.png",
       fullContent: (
         <div>
           <p className="mb-4">
@@ -132,7 +132,7 @@ export interface BlogPost {
       description:
         "Entdecken Sie, wie AI-basierte Diagnosetools die Fehlerbehebung in Ihrer Werkstatt verbessern können.",
       date: "2025-03-01",
-      image: "/bild2.png",
+      image: "/grät.jpg",
       fullContent: (
         <div>
           <p className="mb-4">

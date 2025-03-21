@@ -4,6 +4,7 @@ import Head from "next/head";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
+import Image from "next/image"; // Importiere Next.js Image-Komponente
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -13,13 +14,7 @@ export async function generateStaticParams() {
 
 const BlogPost = async ({ params }: { params: Promise<{ id: string }> }) => {
   const resolvedParams = await params;
-
-  console.log("params.id:", resolvedParams.id);
-  console.log("Parsed id:", parseInt(resolvedParams.id));
-
   const post = blogPosts.find((p) => p.id === parseInt(resolvedParams.id));
-
-  console.log("Found post:", post);
 
   if (!post) {
     return (
@@ -73,6 +68,21 @@ const BlogPost = async ({ params }: { params: Promise<{ id: string }> }) => {
 
         <h2 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h2>
         <p className="text-gray-500 text-sm mb-6">{post.date}</p>
+        
+        {/* Bild hier einfügen */}
+        {post.image && (
+          <div className="mb-6">
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={800} // Passe die Breite an deine Bedürfnisse an
+              height={400}
+              layout="responsive" // Passe die Höhe an deine Bedürfnisse an
+              className="rounded-lg object-cover"
+            />
+          </div>
+        )}
+
         <div className="text-gray-600">{post.fullContent}</div>
         <Link
           href="/blog"
