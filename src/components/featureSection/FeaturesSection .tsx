@@ -5,7 +5,8 @@ import { Button } from "../ui/button";
 const features = [
     "Automatisierte Terminverwaltung",
     "Intelligente Kundenkommunikation",
-    "Einfache Rechnungs- & Zahlungsabwicklung",
+    "Einfache Rechnungsverwaltung",
+    "Einfache Zahlungsabwicklung",
     "Dynamische Wartungsplanung",
     "Optimierte Lagerverwaltung",
     "Kundenbewertungen & Feedback",
@@ -13,7 +14,7 @@ const features = [
     "Digitale Dokumentation",
     "Kundenservice rund um die Uhr",
     "Angebote erstellen",
-    "Admin-Panel, um Ihre Werkstatt zu verwalten",
+    "Adminverwaltung",
     "Und vieles mehr..."
   ];
 
