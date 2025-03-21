@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Settings, Contact, User } from "lucide-react";
+import { Home, Settings, Contact, User, Book } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import { BsCalendar2Date } from "react-icons/bs";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
@@ -44,6 +44,15 @@ export const menuItem = [
     title: "kontakt",
     link: "",
     icon: <Contact />,
+    arrowIcon: <ArrowRight />,
+    subMenu: [
+
+    ],
+  },
+  {
+    title: "Blog",
+    link: "/blog",
+    icon: <Book />,
     arrowIcon: <ArrowRight />,
     subMenu: [
 

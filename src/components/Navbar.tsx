@@ -125,6 +125,12 @@ const Navbar = () => {
             >
               Kontakt
             </Link>
+            <Link
+              href="/blog"
+              className="text-gray-700 hover:text-indigo-600 transition text-lg font-medium"
+            >
+              Blog
+            </Link>
           </div>
         </div>
       </MaxWithWrapper>
