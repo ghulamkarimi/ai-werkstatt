@@ -1,5 +1,8 @@
+// src/components/Footer.tsx
+import Link from "next/link";
 import MaxWithWrapper from "../MaxWithWrapper";
 import { Mail, Phone, Facebook, Twitter, Instagram, ArrowRight } from "lucide-react";
+import { blogPosts } from "@/data/blogPosts";
 
 const Footer = () => {
   return (
@@ -22,33 +25,17 @@ const Footer = () => {
               Neueste Blogbeiträge
             </h3>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-300 hover:text-yellow-500 text-sm flex items-center gap-2"
-                >
-                  <ArrowRight size={16} className="text-yellow-500" />
-                  Wie AI Ihre Werkstatt revolutionieren kann
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-300 hover:text-yellow-500 text-sm flex items-center gap-2"
-                >
-                  <ArrowRight size={16} className="text-yellow-500" />
-                  Die Zukunft der Automatisierung in Werkstätten
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-300 hover:text-yellow-500 text-sm flex items-center gap-2"
-                >
-                  <ArrowRight size={16} className="text-yellow-500" />
-                  Tipps für eine erfolgreiche Online-Präsenz
-                </a>
-              </li>
+              {blogPosts.slice(0, 3).map((post) => (
+                <li key={post.id}>
+                  <Link
+                    href={`/blog/${post.id}`}
+                    className="text-gray-300 hover:text-yellow-500 text-sm flex items-center gap-2"
+                  >
+                    <ArrowRight size={16} className="text-yellow-500" />
+                    {post.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -59,24 +46,24 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-300 hover:text-yellow-500 text-sm">
+                <Link href="/" className="text-gray-300 hover:text-yellow-500 text-sm">
                   Startseite
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-yellow-500 text-sm">
+                <Link href="/features" className="text-gray-300 hover:text-yellow-500 text-sm">
                   Unsere Dienstleistungen
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-yellow-500 text-sm">
+                <Link href="/kontakt" className="text-gray-300 hover:text-yellow-500 text-sm">
                   Kontakt
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-yellow-500 text-sm">
+                <Link href="/impressum" className="text-gray-300 hover:text-yellow-500 text-sm">
                   Impressum
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
