@@ -5,6 +5,7 @@ import AppSidebar from "../components/appSidebar/AppSidebar";
 import { Menu } from "lucide-react";
 import { RootState } from "@/feature/store";
 import { setIsPanelOpen, setToggleSidebarMenu } from "@/feature/reducer/appSlice";
+import Footer from "@/components/footer/Footer";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const { toggleSidebarMenu } = useSelector((state: RootState) => state.app);
@@ -57,6 +58,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Main Content */}
       <main className="flex-1 overflow-hidden relative z-0">{children}</main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };
