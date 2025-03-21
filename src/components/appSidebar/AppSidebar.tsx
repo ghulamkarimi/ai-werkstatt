@@ -25,6 +25,15 @@ const AppSidebar = () => {
     dispatch(setToggleSidebarMenu(false));
   };
 
+  const handleMainItemClick = (item: typeof menuItem[0]) => {
+    if (item.subMenu && item.subMenu.length > 0) {
+      toggleSubMenu(item.title); // Öffne/Schließe Untermenü, wenn eines existiert
+    } else if (item.link) {
+      router.push(item.link); // Navigiere zum Link, wenn kein Untermenü
+      dispatch(setToggleSidebarMenu(false)); // Schließe Sidebar
+    }
+  };
+
   return (
     <div
       className={`fixed top-0 left-0 h-screen z-50 bg-gray-200 shadow-xl ${
@@ -40,7 +49,7 @@ const AppSidebar = () => {
       >
         {/* Header with Close Icon */}
         <div className="flex items-center justify-between px-6 py-5 shadow-sm deep-blue rounded-tr-3xl">
-          <h2 className="text-xl font-bold  text-white">Menü</h2>
+          <h2 className="text-xl font-bold text-white">Menü</h2>
           <X
             className="w-8 h-8 cursor-pointer text-white transition-all"
             onClick={() => {
@@ -59,31 +68,24 @@ const AppSidebar = () => {
             <div key={index} className="flex flex-col relative group">
               {/* Main Menu Item */}
               <div
-                className="flex w-full p-4 gap-3 transition-all duration-300 items-center justify-between cursor-pointer hover:bg-blue-50  rounded-lg"
-                onClick={() => {
-                  if (item.title === "Startseite") {
-                    router.push("/");
-                  } else {
-                    toggleSubMenu(item.title); // Toggle Submenu on click
-                  }
-                }}
+                className="flex w-full p-4 gap-3 transition-all duration-300 items-center justify-between cursor-pointer hover:bg-blue-50 rounded-lg"
+                onClick={() => handleMainItemClick(item)}
               >
                 <div className="flex gap-3 items-center">
                   <span className="w-6 h-6 text-indigo-600">
                     {React.cloneElement(item.icon, { className: "w-6 h-6" })}
                   </span>
-
                   <span className="text-gray-800 hover:border-b-2 border-yellow-500">
                     {item.title}
                   </span>
                 </div>
-                {item.subMenu && (
+                {item.subMenu && item.subMenu.length > 0 && (
                   <span
                     className={`text-blue-900 font-bold transform transition-transform duration-300 ${
                       activeSubMenu === item.title ? "rotate-90" : ""
                     }`}
                   >
-                    &#8250;
+                    ›
                   </span>
                 )}
               </div>
