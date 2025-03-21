@@ -3,7 +3,7 @@ import { CheckCircle, Phone, FileText, Rocket, ArrowRight, Check } from "lucide-
 const steps = [
   {
     title: "Logo & Name",
-    description: "Wählen Sie einen passenden Namen und bereiten Sie Ihr Werkstatt-Logo vor oder helfen wir Ihnen.",
+    description: "Wählen Sie einen passenden Namen und bereiten Sie Ihr Werkstatt-Logo vor oder lassen Sie uns Ihnen helfen.",
     icon: <CheckCircle size={36} className="text-orange-500" />,
   },
   {
