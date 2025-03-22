@@ -17,6 +17,8 @@ import Consultant from "@/components/consultant/Consultant";
 import FeaturesSection from "@/components/featureSection/FeaturesSection ";
 import CustomerReviews from "@/components/featureSection/CustomerReview";
 import Steps from "@/components/featureSection/Steps";
+import { useSelector } from "react-redux";
+import { displayContents } from "@/feature/reducer/contentSlice";
 
 const cards = [
   {
@@ -59,37 +61,51 @@ const cards = [
 ];
 
 export default function AiWerkstattLanding() {
+  const content = useSelector(displayContents)
+  console.log("content",content)
+  const normalizedContent = Array.isArray(content) ? content.flat() : [content];
+  const innerContent = normalizedContent[0];
+
+  
   return (
     <div className="min-h-screen bg-slate-100/80 font-sans antialiased">
       {/* Hero Section */}
       <header className="pt-20 pb-16 text-center bg-gradient-to-br from-indigo-50 via-white to-teal-50">
-        <div className="container mx-auto px-4">
-          {/* Hauptüberschrift */}
-          <h1 className="text-4xl md:text-5xl  font-bold text-gray-900 mb-6 tracking-tight">
-            Die Zukunft der Werkstattverwaltung
-          </h1>
+  {content && content.length > 0 ? ( // Überprüfe, ob `content` definiert ist und mindestens ein Element enthält
+    content.map((cont) => ( // Mappe über das `content`-Array
+      <div key={cont._id} className="container mx-auto px-4">
+        {/* Hauptüberschrift */}
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          {cont.sectionTitle}
+        </h1>
 
-          {/* Integrierte H2-Struktur mit vollständigem Text */}
-          <h2 className="text-xl md:text-2xl  text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            <span className="bg-[#013766] text-white px-4 py-2 rounded-xl">
-              AI-Werkstatt
-            </span>{" "}
-            bietet smarte Lösungen für{" "}
-            <span className="font-bold ml-1 ">
-              Terminbuchung
+        {/* Beschreibung mit dynamischen Features */}
+        <h2 className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <span className="bg-[#013766] text-white px-4 py-2 rounded-xl">
+            AI-Werkstatt
+          </span>{" "}
+          bietet smarte Lösungen für{" "}
+          {cont.features && cont.features.map((feature, index) => (
+            <span key={index} className="font-bold ml-1">
+              {feature} {/* `feature` ist jetzt ein String, kein Objekt */}
+              {index < cont.features.length - 1 ? ", " : ""}
             </span>
-            ,{" "}
-            <span className="font-bold ml-1 ">
-              Rechnungen
-            </span>{" "}
-            und
-            <span className="font-bold ml-1 ">
-              Kundenkommunikation
-            </span>{" "}
-            {"-"} einfach und modern.
-          </h2>
-        </div>
-      </header>
+          ))}
+          {" "}- einfach und modern.
+        </h2>
+      </div>
+    ))
+  ) : (
+    <div className="container mx-auto px-4">
+      <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+        Keine Daten verfügbar
+      </h1>
+      <h2 className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        Bitte erstellen Sie einen neuen Inhalt.
+      </h2>
+    </div>
+  )}
+</header>
 
       {/* Main Content: Image on Left, Form on Right */}
       <div className="w-full">

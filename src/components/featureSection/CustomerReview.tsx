@@ -35,11 +35,11 @@ const reviews = [
 const CustomerReviews = () => {
   const settings = {
     infinite: true,
-    speed: 4000, // Sanfterer Übergang
+    speed: 4000, 
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 8000, // 7 Sekunden pro Slide
+    autoplaySpeed: 8000, 
     arrows: false,
     pauseOnHover: true,
     
