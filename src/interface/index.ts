@@ -21,3 +21,13 @@ export interface IContactFormData {
   }
   
   export type TContactFormData = Partial<IContactFormData>
+
+  export interface IBlogPost {
+    _id: string;
+    title: string;
+    description: string;
+    date: string;
+    image: string;
+    fullContent: string;
+  }
+  export type TBlogPost = Partial<IBlogPost>

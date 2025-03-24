@@ -2,9 +2,12 @@
 import Link from "next/link";
 import MaxWithWrapper from "../MaxWithWrapper";
 import { Mail, Phone, Facebook, Twitter, Instagram, ArrowRight } from "lucide-react";
-import { blogPosts } from "@/data/blogPosts";
+import { useSelector } from "react-redux";
+import { displayBlogs } from "@/feature/reducer/blogPostslice";
 
 const Footer = () => {
+  const getAllBlogs = useSelector(displayBlogs) 
+  console.log("getAllBlogs",getAllBlogs)
   return (
     <footer className="deep-blue text-white py-12">
       <MaxWithWrapper>
@@ -25,14 +28,14 @@ const Footer = () => {
               Neueste Blogbeiträge
             </h3>
             <ul className="space-y-3">
-              {blogPosts.slice(0, 3).map((post) => (
-                <li key={post.id}>
+              {getAllBlogs.slice(0, 3).map((post) => (
+                <li key={post?._id}>
                   <Link
-                    href={`/blog/${post.id}`}
+                    href={`/blog/${post?._id}`}
                     className="text-gray-300 hover:text-yellow-500 text-sm flex items-center gap-2"
                   >
                     <ArrowRight size={16} className="text-yellow-500" />
-                    {post.title}
+                    {post?.title}
                   </Link>
                 </li>
               ))}

@@ -63,20 +63,28 @@ const cards = [
 export default function AiWerkstattLanding() {
   const content = useSelector(displayContents)
   console.log("content",content)
-  const normalizedContent = Array.isArray(content) ? content.flat() : [content];
-  const innerContent = normalizedContent[0];
+
+  if (!content) {
+    return (
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          Lade Inhalte...
+        </h1>
+      </div>
+    );
+  }
 
   
   return (
     <div className="min-h-screen bg-slate-100/80 font-sans antialiased">
       {/* Hero Section */}
       <header className="pt-20 pb-16 text-center bg-gradient-to-br from-indigo-50 via-white to-teal-50">
-  {content && content.length > 0 ? ( // Überprüfe, ob `content` definiert ist und mindestens ein Element enthält
-    content.map((cont) => ( // Mappe über das `content`-Array
-      <div key={cont._id} className="container mx-auto px-4">
+  {content && content.length > 0 ? (
+    content.map((cont) => ( 
+      <div key={cont?._id} className="container mx-auto px-4">
         {/* Hauptüberschrift */}
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-          {cont.sectionTitle}
+          {cont?.sectionTitle}
         </h1>
 
         {/* Beschreibung mit dynamischen Features */}
@@ -85,10 +93,10 @@ export default function AiWerkstattLanding() {
             AI-Werkstatt
           </span>{" "}
           bietet smarte Lösungen für{" "}
-          {cont.features && cont.features.map((feature, index) => (
-            <span key={index} className="font-bold ml-1">
+          {cont?.features && cont?.features.map((feature, index) => (
+            <span key={feature} className="font-bold ml-1">
               {feature} {/* `feature` ist jetzt ein String, kein Objekt */}
-              {index < cont.features.length - 1 ? ", " : ""}
+              {index < cont?.features.length - 1 ? ", " : ""}
             </span>
           ))}
           {" "}- einfach und modern.

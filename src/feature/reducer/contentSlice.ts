@@ -12,7 +12,7 @@ interface IContentState {
 
 
 const contentAdapter = createEntityAdapter<IContent,string>({
-    selectId:(content)=>content._id
+    selectId:(content)=>content?._id
 })
 
 const initialState :IContentState & EntityState<IContent,string>= contentAdapter.getInitialState({
