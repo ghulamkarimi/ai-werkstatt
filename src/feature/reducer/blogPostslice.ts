@@ -1,7 +1,6 @@
 import { IBlogPost } from "@/interface"
 import { getBlog } from "@/services/blogPost"
 import { createAsyncThunk, createEntityAdapter, createSlice, EntityState } from "@reduxjs/toolkit"
-import { error } from "console"
 import { RootState } from "../store"
 
 interface IBlogPostState{
@@ -24,8 +23,6 @@ const initialState:IBlogPostState & EntityState <IBlogPost,string>=blogPostAdapt
 export const getBlogApi = createAsyncThunk("/blog/getBlogApi",async()=>{
     try {
         const response = await getBlog()
-
-        console.log("responseBlog",response.data.blogPosts)
         return response.data.blogPosts
     } catch (error:any) {
         throw new error

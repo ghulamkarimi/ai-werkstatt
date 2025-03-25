@@ -1,20 +1,20 @@
-// src/app/blog/[id]/page.tsx
+// app/blog/[id]/page.tsx
+"use client";
 import Link from "next/link";
 import Head from "next/head";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import { ArrowRight } from "lucide-react";
-import { blogPosts } from "@/data/blogPosts";
-import Image from "next/image"; // Importiere Next.js Image-Komponente
+import Image from "next/image";
+import { useSelector } from "react-redux";
+import { RootState } from "@/feature/store";
+import { displayBlog } from "@/feature/reducer/blogPostslice";
+import { useParams } from "next/navigation";
 
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    id: post.id.toString(),
-  }));
-}
-
-const BlogPost = async ({ params }: { params: Promise<{ id: string }> }) => {
-  const resolvedParams = await params;
-  const post = blogPosts.find((p) => p.id === parseInt(resolvedParams.id));
+export default function BlogPost() {
+  const { id: postId } = useParams();
+  const post = useSelector((state: RootState) => displayBlog(state, postId as string));
+  console.log("postId", postId);
+  console.log("post", post);
 
   if (!post) {
     return (
@@ -43,15 +43,9 @@ const BlogPost = async ({ params }: { params: Promise<{ id: string }> }) => {
           property="og:image"
           content={post.image || "/images/default-og-image.jpg"}
         />
-        <meta
-          property="og:url"
-          content={`https://ai-werkstatt.de/blog/${resolvedParams.id}`}
-        />
+        <meta property="og:url" content={`https://ai-werkstatt.de/blog/${postId}`} />
         <meta property="og:type" content="article" />
-        <link
-          rel="canonical"
-          href={`https://ai-werkstatt.de/blog/${resolvedParams.id}`}
-        />
+        <link rel="canonical" href={`https://ai-werkstatt.de/blog/${postId}`} />
       </Head>
       <MaxWithWrapper>
         <nav className="mb-6 text-sm text-gray-600">
@@ -68,22 +62,20 @@ const BlogPost = async ({ params }: { params: Promise<{ id: string }> }) => {
 
         <h2 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h2>
         <p className="text-gray-500 text-sm mb-6">{post.date}</p>
-        
-        {/* Bild hier einfügen */}
+
         {post.image && (
           <div className="mb-6">
             <Image
-              src={post.image}
+              src={`http://localhost:7030/${post.image}`}
               alt={post.title}
-              width={800} // Passe die Breite an deine Bedürfnisse an
+              width={800}
               height={400}
-              layout="responsive" // Passe die Höhe an deine Bedürfnisse an
               className="rounded-lg object-cover"
             />
           </div>
         )}
 
-        <div className="text-gray-600">{post.fullContent}</div>
+        <div className="text-gray-600">{post.fullContent || post.description}</div>
         <Link
           href="/blog"
           className="text-yellow-500 hover:text-yellow-600 flex items-center gap-2 mt-6"
@@ -94,6 +86,4 @@ const BlogPost = async ({ params }: { params: Promise<{ id: string }> }) => {
       </MaxWithWrapper>
     </section>
   );
-};
-
-export default BlogPost;
+}
