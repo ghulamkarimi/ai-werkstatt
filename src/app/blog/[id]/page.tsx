@@ -32,15 +32,22 @@ const BlogPost = ({ params }: { params: { id: string } }) => {
       <Head>
         <title>{post.title} | AI-Werkstatt Blog</title>
         <meta name="description" content={post.description} />
-        <meta name="keywords" content="AI, Werkstatt, Automatisierung, Diagnose" />
+        <meta
+          name="keywords"
+          content="AI, Werkstatt, Automatisierung, Diagnose"
+        />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.description} />
         <meta
           property="og:image"
-          content={post.image ? `http://localhost:7030${post.image}` : "/images/default-og-image.jpg"}
+          content={
+            post.image
+              ? `http://localhost:7030${post.image}`
+              : "/images/default-og-image.jpg"
+          }
         />
       </Head>
-      
+
       <MaxWithWrapper>
         <nav className="mb-6 text-sm text-gray-600">
           <Link href="/" className="hover:text-yellow-500">
@@ -55,8 +62,16 @@ const BlogPost = ({ params }: { params: { id: string } }) => {
         </nav>
 
         <h1 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h1>
-        <p className="text-gray-500 text-sm mb-6">{post.date}</p>
-        
+        <p className="text-gray-500 text-sm mb-6">
+      {post?.date
+          ? new Date(post?.date).toLocaleDateString("de-DE", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric",
+          })
+          : "Keine Daten verfügbar"}
+      </p>
+
         {post.image && (
           <div className="relative aspect-video w-full mb-8">
             <Image

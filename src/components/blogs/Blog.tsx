@@ -12,7 +12,7 @@ const Blogs = () => {
   const getAllBlogs = useSelector(displayBlogs);
   const blogs = useSelector((state: RootState) => displayBlogs(state));
 
-  const {blogId} = useSelector((state:RootState)=>state.blogPost)
+  const { blogId } = useSelector((state: RootState) => state.blogPost)
   const dispatch = useDispatch()
   const router = useRouter()
   console.log("blogs", blogs);
@@ -34,22 +34,21 @@ const Blogs = () => {
             return (
               <div
                 key={post?._id}
-                className={`p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col sm:flex-row border-y-1 border-yellow-500 ${
-                  index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-                } items-center gap-6`}
+                className={`p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col sm:flex-row border-y-1 border-yellow-500 ${index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
+                  } items-center gap-6`}
               >
                 {post?.image && (
                   <div className="w-full sm:w-1/2 mb-4 sm:mb-0">
                     <Image
-//  src={
-//   post.image.startsWith('/uploads') 
-//     ? `http://localhost:7030${post.image}`
-//     : post.image.startsWith('/Users/')
-//       ? `/api/proxy?path=${encodeURIComponent(post.image)}`
-//       : post.image
-// }  
-src={`http://localhost:7030${post?.image}`}
-alt={post?.title}
+                      //  src={
+                      //   post.image.startsWith('/uploads') 
+                      //     ? `http://localhost:7030${post.image}`
+                      //     : post.image.startsWith('/Users/')
+                      //       ? `/api/proxy?path=${encodeURIComponent(post.image)}`
+                      //       : post.image
+                      // }  
+                      src={`http://localhost:7030${post?.image}`}
+                      alt={post?.title}
 
                       width={400}
                       height={200}
@@ -64,19 +63,26 @@ alt={post?.title}
                     <h3 className="text-xl font-bold text-gray-800 mb-2">
                       {post?.title}
                     </h3>
-                    <p className="text-gray-500 text-sm mb-3">{post?.date}</p>
+                    {/* <p className="text-gray-500 text-sm mb-3">{post?.date}</p> */}
+                    <div className="text-gray-500 text-sm mb-3">
+                      {post?.date ? new Date(post?.date).toLocaleDateString('de-DE', {
+                        day: '2-digit',
+                        month: '2-digit', 
+                        year: 'numeric'
+                      }) : "Keine Daten verfügbar"}
+                    </div>
                     <div className="text-gray-600 text-sm mb-4">
                       {post?.description}
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div
-                      onClick={()=>{
-dispatch(setBlogId(post?._id))
-router.push(`/blog/${post?._id}`)
+                      onClick={() => {
+                        dispatch(setBlogId(post?._id))
+                        router.push(`/blog/${post?._id}`)
                       }}
-                   
-                      className="text-yellow-500 hover:text-yellow-600 flex items-center gap-2 text-sm font-semibold"
+
+                      className="text-yellow-500 hover:text-yellow-600 flex items-center gap-2 text-sm font-semibold cursor-pointer"
                     >
                       Vollständigen Artikel lesen
                       <ArrowRight size={16} />
