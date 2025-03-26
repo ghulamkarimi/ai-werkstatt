@@ -7,6 +7,7 @@ import { RootState } from "../store"
 interface IBlogPostState{
     status:"idle"| "completed"|"rejected"
     error:string | null
+    blogId:string
 }
 
 
@@ -16,7 +17,8 @@ const blogPostAdapter = createEntityAdapter<IBlogPost,string>({
 
 const initialState:IBlogPostState & EntityState <IBlogPost,string>=blogPostAdapter.getInitialState({
     status:"idle",
-    error:null
+    error:null,
+    blogId:""
 })
 
 
@@ -36,7 +38,11 @@ export const getBlogApi = createAsyncThunk("/blog/getBlogApi",async()=>{
 const blogSlice = createSlice({
     name:"blog",
     initialState,
-    reducers:{},
+    reducers:{
+        setBlogId:(state,action)=>{
+state.blogId = action.payload
+        }
+    },
     extraReducers:(builder)=>{
         builder
         .addCase(getBlogApi.fulfilled, (state, action) => {
@@ -53,6 +59,8 @@ const blogSlice = createSlice({
     }
 })
 
+
+export const {setBlogId} = blogSlice.actions
 
 export const { selectAll: displayBlogs, selectById: displayBlog } = blogPostAdapter.getSelectors(
     (state: RootState) => state.blogPost
