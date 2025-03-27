@@ -6,10 +6,19 @@ import { Menu } from "lucide-react";
 import { RootState } from "@/feature/store";
 import { setIsPanelOpen, setToggleSidebarMenu } from "@/feature/reducer/appSlice";
 import Footer from "@/components/footer/Footer";
+import { BsChatRightText } from "react-icons/bs"; // Chat-Icon
+import { setIsChatAiOpen } from "@/feature/reducer/chatAiSlice";
+import ChatAi from "@/components/chatAi/ChatAiComponent";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const { toggleSidebarMenu } = useSelector((state: RootState) => state.app);
+  const { isChatAiOpen } = useSelector((state: RootState) => state.chatAi);
   const dispatch = useDispatch();
+
+  const handleChatClick = () => {
+    dispatch(setIsChatAiOpen(!isChatAiOpen));
+  };
+
 
   return (
     <div className="relative min-h-screen">
@@ -31,7 +40,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       {toggleSidebarMenu && (
         <div
           className="fixed inset-0 z-10 backdrop-blur-lg bg-gray-900/50"
-          onClick={() => dispatch(setToggleSidebarMenu(false))} // Schließt Sidebar, wenn außerhalb geklickt
+          onClick={() => dispatch(setToggleSidebarMenu(false))}
         />
       )}
 
@@ -44,12 +53,12 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
         <AppSidebar />
       </div>
 
-      {/* Hamburger-Menü-Icon - nur bei kleinen Bildschirmen sichtbar */}
+      {/* Hamburger-Menü-Icon */}
       <div className="absolute top-18 left-4 z-10 md:hidden">
-        <Menu 
+        <Menu
           className="w-8 h-8 cursor-pointer text-black"
           onClick={(e) => {
-            e.stopPropagation(); // Verhindert, dass das Event die Sidebar schließt
+            e.stopPropagation();
             dispatch(setToggleSidebarMenu(!toggleSidebarMenu));
             dispatch(setIsPanelOpen(false));
           }}
@@ -58,6 +67,18 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Main Content */}
       <main className="flex-1 overflow-hidden relative z-0">{children}</main>
+
+      {/* Chat-Icon */}
+      <div
+        className="fixed bottom-5 right-5 z-50 bg-blue-600 p-3 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-colors"
+        onClick={handleChatClick}
+      >
+        <BsChatRightText className="w-10 h-10 text-white" />
+      </div>
+
+      {isChatAiOpen && <ChatAi />}
+
+      {/* Footer */}
       <footer>
         <Footer />
       </footer>

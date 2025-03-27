@@ -31,3 +31,15 @@ export interface IContactFormData {
     fullContent: string;
   }
   export type TBlogPost = Partial<IBlogPost>
+
+
+  // src/types/aiRequest.ts (oder wo du deine Typen speicherst)
+
+export interface IAiChat {
+    _id: string;        
+    prompt: string;     
+    response?: string;  
+    createdAt: string;  
+  }
+
+  export type TAiChat = Partial<IAiChat>
